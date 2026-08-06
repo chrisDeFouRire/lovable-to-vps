@@ -2,7 +2,7 @@
 
 A Pi user skill for migrating a conventional Lovable React/Vite/Supabase application to a self-managed Ubuntu or Debian VPS.
 
-The workflow is provider-independent. It was developed on Infomaniak, but uses standard Linux, DNS, firewall, SSH, Docker, Caddy, and GitHub features that also apply to providers such as Hetzner, DigitalOcean, OVHcloud, Scaleway, Linode, and generic virtual or dedicated servers.
+The workflow was developed and tested on Ubuntu 26.04 LTS with an Infomaniak VPS. It uses standard Linux, DNS, firewall, SSH, Docker, Caddy, and GitHub features that also apply to providers such as Hetzner, DigitalOcean, OVHcloud, Scaleway, Linode, and generic virtual or dedicated servers.
 
 ## What it covers
 

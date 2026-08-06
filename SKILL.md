@@ -6,7 +6,7 @@ compatibility: Requires bash, Python 3, SSH/SCP, Git, curl, and an Ubuntu VPS wi
 
 # Lovable to VPS
 
-Move a typical Lovable React/Vite/Supabase repository to a self-managed VPS with reproducible, isolated staging and production environments. The commands target Ubuntu/Debian with APT and systemd; adapt package/service commands for other distributions.
+Move a typical Lovable React/Vite/Supabase repository to a self-managed VPS with reproducible, isolated staging and production environments. The workflow was developed and tested on Ubuntu 26.04 LTS. Commands target Ubuntu/Debian with APT and systemd; adapt package and service commands for other distributions.
 
 ## First response
 
