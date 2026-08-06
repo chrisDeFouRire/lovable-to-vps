@@ -5,7 +5,7 @@
 Run:
 
 ```sh
-SKILL=~/.pi/agent/skills/lovable-to-infomaniak-vps
+SKILL=~/.pi/agent/skills/lovable-to-vps
 "$SKILL/scripts/audit-lovable-repo.sh" .
 ```
 
@@ -23,7 +23,7 @@ $EDITOR /tmp/lovable-vps-config.env
 
 Review and commit `ops/`, `.env.example`, and any required app fixes. Keep the generated runbook current after every operational change.
 
-## 3. Configure Infomaniak
+## 3. Configure provider DNS and firewall
 
 Create one A and one AAAA record for the base host, then CNAMEs for:
 
@@ -34,7 +34,7 @@ supabase-staging
 supabase-prod
 ```
 
-Point each CNAME to the base host. In the Infomaniak network firewall allow inbound TCP 80 and 443 for IPv4 and IPv6. Do not expose 5432/5433, 6543/6544, 8000/8001, or 8443/8444.
+Point each CNAME to the base host. In the provider's cloud/network firewall, security group, or equivalent perimeter policy, allow inbound TCP 80 and 443 for IPv4 and IPv6. Do not expose 5432/5433, 6543/6544, 8000/8001, or 8443/8444. If the VPS/provider has no IPv6, omit AAAA records and IPv6 probes and record that decision in the runbook.
 
 Verify DNS before deployment:
 
@@ -203,6 +203,7 @@ Run basic and authenticated checks against production, not staging:
 
 ```sh
 sudo /tmp/verify-environment.sh production <base-domain> /mnt/data <app-slug>
+# On providers without IPv6: SKIP_IPV6=1 sudo -E /tmp/verify-environment.sh ...
 sudo /tmp/smoke-test-lovable.sh production <private-bucket> <protected-function> profiles
 ```
 

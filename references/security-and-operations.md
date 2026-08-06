@@ -10,7 +10,7 @@
 - Do not add operators to the Docker group merely for convenience; it grants root-equivalent access.
 - Never print service-role, database, JWT, private-key, or administrator secrets into chat or CI logs.
 
-## Infomaniak control panel
+## Provider control plane
 
 Document manual provider actions because they are not represented on the VPS:
 
@@ -33,7 +33,7 @@ Record:
 
 - exact commands and paths
 - pinned versions
-- manual Infomaniak actions
+- manual provider DNS/firewall actions
 - verification output/expected status
 - rollback procedure
 - deferred SMTP, imports, off-server backup, and production work

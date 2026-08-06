@@ -20,7 +20,9 @@ for port in "$kong_http" "$kong_https" "$postgres" "$pooler"; do
   ss -H -lnt | awk '{print $4}' | grep -Fqx "127.0.0.1:$port" || { echo "port is missing or not IPv4-loopback-bound: $port" >&2; exit 1; }
 done
 
-for family in 4 6; do
+families='4 6'
+[ "${SKIP_IPV6:-0}" = 1 ] && families=4
+for family in $families; do
   [ "$(curl -"$family" -sS -o /dev/null -w '%{http_code}' "https://$label.$base/")" = 200 ]
   [ "$(curl -"$family" -sS -o /dev/null -w '%{http_code}' "https://$label.$base/nonexistent-spa-route")" = 200 ]
   [ "$(curl -"$family" -sS -o /dev/null -w '%{http_code}' "https://supabase-$label.$base/auth/v1/")" = 401 ]
@@ -43,4 +45,4 @@ else
 fi
 free -h
 df -h / "$data_root"
-echo "Basic IPv4/IPv6, port-binding, permission, backup, and resource checks passed for $env_name."
+echo "Basic address-family, port-binding, permission, backup, and resource checks passed for $env_name."

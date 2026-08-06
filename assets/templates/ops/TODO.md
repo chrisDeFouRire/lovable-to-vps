@@ -1,6 +1,6 @@
 # Operations TODO
 
-- [ ] Verify Infomaniak A, AAAA, four CNAMEs, and inbound TCP 80/443 over IPv4 and IPv6.
+- [ ] Verify provider DNS (A, optional AAAA, and four CNAMEs) plus inbound TCP 80/443; test both address families when IPv6 is available.
 - [ ] Create a read-only GitHub deploy key and independent staging/production clones.
 - [ ] Install Docker/Compose/Caddy and move Docker data to {{DATA_ROOT}}.
 - [ ] Audit hard-coded Supabase URLs, migration completeness, buckets, RLS, and Edge Functions.

@@ -1,12 +1,12 @@
 ---
-name: lovable-to-infomaniak-vps
-description: Migrate and operate Lovable.dev/Lovable.io Vite applications on an Infomaniak Ubuntu VPS, including GitHub staging/production branches and deploy keys, Docker on a data volume, two isolated self-hosted Supabase stacks, Caddy/DNS/TLS, migrations, Edge Functions, static deployments, administrators, backups, verification, and rollback. Use this skill whenever a user wants to leave Lovable hosting, self-host a Lovable app or Supabase, deploy a Lovable GitHub repository to Infomaniak, or build staging/production VPS infrastructure for a typical Lovable React/Vite/Supabase project—even if only one part of that migration is requested.
+name: lovable-to-vps
+description: Migrate and operate Lovable.dev/Lovable.io Vite applications on a self-managed Ubuntu or Debian VPS, including GitHub staging/production branches and deploy keys, Docker on a data volume, two isolated self-hosted Supabase stacks, Caddy/DNS/TLS, migrations, Edge Functions, static deployments, administrators, backups, verification, and rollback. Use this skill whenever a user wants to leave Lovable hosting, self-host a Lovable app or Supabase, deploy a Lovable GitHub repository to Infomaniak, Hetzner, DigitalOcean, OVHcloud, Scaleway, Linode, or another VPS provider, or build staging/production infrastructure for a typical Lovable React/Vite/Supabase project—even if only one part of that migration is requested.
 compatibility: Requires bash, Python 3, SSH/SCP, Git, curl, and an Ubuntu VPS with sudo. Local Vite builds require Node.js/npm.
 ---
 
-# Lovable to Infomaniak VPS
+# Lovable to VPS
 
-Move a typical Lovable React/Vite/Supabase repository to an Infomaniak VPS with reproducible, isolated staging and production environments.
+Move a typical Lovable React/Vite/Supabase repository to a self-managed VPS with reproducible, isolated staging and production environments. The commands target Ubuntu/Debian with APT and systemd; adapt package/service commands for other distributions.
 
 ## First response
 
@@ -14,7 +14,7 @@ Do not start installing until the repository and server are understood. Ask only
 
 - repository URL and staging/production branch names (`staging` and `main` by default)
 - local SSH alias for the VPS
-- base domain and ability to change Infomaniak DNS/firewall settings
+- base domain and ability to change the provider's DNS and perimeter-firewall settings
 - whether this is a clean Supabase install or a data migration
 - VPS data-volume path (`/mnt/data` by default)
 - administrator emails
@@ -98,7 +98,7 @@ Do not call the migration complete until these pass:
 - authenticated login, own-row RLS, private upload/download/delete, admin function, and Realtime WebSocket checks pass
 - daily database dump exists, is mode `600`, and `pg_restore -l` can read it
 - tracked server configuration has no drift
-- IPv4 and IPv6 TLS probes pass after Infomaniak firewall changes
+- IPv4 and IPv6 TLS probes pass after provider firewall changes, or lack of IPv6 is documented and IPv6 checks are deliberately omitted
 - production repeats migration, function, administrator, backup, authenticated smoke, port-binding, and rollback checks independently; staging success is not production evidence
 
 ## Scope boundaries

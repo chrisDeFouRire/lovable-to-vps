@@ -29,13 +29,13 @@ SSH alias: `{{SSH_HOST}}`. Git remote: `{{GITHUB_REPO}}`. Supabase release: `{{S
 
 Never commit generated `.env`, credentials, keys, database files, storage objects, dumps, or certificates.
 
-## Infomaniak control panel
+## Provider control plane
 
 Record A, AAAA, CNAME, and network-firewall changes here, including actual addresses and verification dates. Public inbound ports are TCP 80 and 443 for IPv4 and IPv6. Keep Supabase gateway and database ports private.
 
 ## Installation log
 
-Document the actual commands, versions, reviewed upstream setup-script SHA-256, generated paths, ownership, verification, and rollback as each phase is completed. Follow the `lovable-to-infomaniak-vps` user skill; do not leave this as a generic placeholder after deployment.
+Document the actual commands, versions, reviewed upstream setup-script SHA-256, generated paths, ownership, verification, and rollback as each phase is completed. Follow the `lovable-to-vps` user skill; do not leave this as a generic placeholder after deployment.
 
 ## Deployment
 
