@@ -1,0 +1,19 @@
+staging.{{BASE_DOMAIN}} {
+	root * /var/www/{{APP_SLUG}}-staging
+	try_files {path} /index.html
+	file_server
+}
+
+supabase-staging.{{BASE_DOMAIN}} {
+	reverse_proxy 127.0.0.1:{{STAGING_KONG_HTTP_PORT}}
+}
+
+prod.{{BASE_DOMAIN}} {
+	root * /var/www/{{APP_SLUG}}-production
+	try_files {path} /index.html
+	file_server
+}
+
+supabase-prod.{{BASE_DOMAIN}} {
+	reverse_proxy 127.0.0.1:{{PRODUCTION_KONG_HTTP_PORT}}
+}

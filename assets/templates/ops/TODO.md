@@ -1,0 +1,24 @@
+# Operations TODO
+
+- [ ] Verify Infomaniak A, AAAA, four CNAMEs, and inbound TCP 80/443 over IPv4 and IPv6.
+- [ ] Create a read-only GitHub deploy key and independent staging/production clones.
+- [ ] Install Docker/Compose/Caddy and move Docker data to {{DATA_ROOT}}.
+- [ ] Audit hard-coded Supabase URLs, migration completeness, buckets, RLS, and Edge Functions.
+- [ ] Install pinned, isolated staging Supabase and track its non-secret Compose configuration.
+- [ ] Apply and verify staging migrations.
+- [ ] Deploy and authorize staging Edge Functions.
+- [ ] Build and deploy the staging app.
+- [ ] Create administrators and verify login/authorization.
+- [ ] Configure and validate local database backups.
+- [ ] Run authenticated staging checks for RLS, private storage, Edge Functions, and Realtime.
+- [ ] Configure SMTP and test signup/password-reset delivery.
+- [ ] Configure encrypted off-server database, storage-object, and `.env` backups.
+- [ ] Import required existing data or reference catalogs.
+- [ ] Promote the accepted staging revision into `main` through a reviewed merge.
+- [ ] Clone/update the independent production checkout tracking `main`.
+- [ ] Install production Supabase with fresh secrets, distinct ports, database, storage, and migration marker.
+- [ ] Apply production migrations and deploy production Edge Functions.
+- [ ] Build with `.env.production.local` and atomically deploy the production static app.
+- [ ] Create production administrators independently; do not reuse staging credentials.
+- [ ] Install and validate the independent production database backup job.
+- [ ] Pass production IPv4/IPv6 TLS, RLS, private storage, protected function, Realtime, port-binding, drift, and rollback checks.

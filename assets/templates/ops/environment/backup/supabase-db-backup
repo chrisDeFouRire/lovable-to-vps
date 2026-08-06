@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+backup_dir={{DATA_ROOT}}/backups/supabase-{{ENVIRONMENT}}
+stamp=$(date -u +%Y%m%dT%H%M%SZ)
+tmp="$backup_dir/.postgres-$stamp.dump"
+trap 'rm -f "$tmp"' EXIT
+
+install -d -m 700 "$backup_dir"
+cd /opt/supabase-{{ENVIRONMENT}}
+docker compose exec -T db pg_dump -U postgres -d postgres -Fc > "$tmp"
+chmod 600 "$tmp"
+mv "$tmp" "$backup_dir/postgres-$stamp.dump"
+find "$backup_dir" -type f -name 'postgres-*.dump' -mtime +13 -delete
