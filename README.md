@@ -70,6 +70,8 @@ The bundled bootstrap script uses APT and systemd. Adapt package installation an
 
 This repository contains placeholders only: no application IDs, customer domains, server addresses, credentials, generated Supabase environments, or customer data. Never commit generated `.env` files, private keys, administrator passwords, database dumps, storage objects, or certificates.
 
+The deployment scripts are privileged operator tools. Review them before execution and run them only against the intended VPS: bootstrap and installation change system services and Docker, while migration and deployment scripts change persistent application state.
+
 ## License
 
 [MIT](LICENSE)
